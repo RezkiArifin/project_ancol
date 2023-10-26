@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tiket_saya/screens/riwayat.dart';
-import 'package:tiket_saya/screens/tiket.dart';
+import 'package:tiket_saya/widget/riwayat_widget.dart';
+import 'package:tiket_saya/widget/tiket_widget.dart';
 
 class TiketSayaScreen extends StatefulWidget {
   const TiketSayaScreen({super.key});
@@ -62,12 +62,12 @@ class _TiketSayaScreenState extends State<TiketSayaScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    _buttonBuilder(const TiketScreen(), "Tiket Saya", 0),
+                    _buttonBuilder(const TiketWidget(), "Tiket Saya", 0),
                     _buttonBuilder(
                         const RiwayatScreen(), "Riwayat Pembayaran", 1),
                   ],
                 ),
-                if (_selectedIndex == 0) const TiketScreen(),
+                if (_selectedIndex == 0) const TiketWidget(),
                 if (_selectedIndex == 1) const RiwayatScreen(),
               ],
             ),

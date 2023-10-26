@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class TiketScreen extends StatefulWidget {
-  const TiketScreen({super.key});
+class TiketWidget extends StatefulWidget {
+  const TiketWidget({super.key});
 
   @override
-  State<TiketScreen> createState() => _TiketScreenState();
+  State<TiketWidget> createState() => _TiketWidgetState();
 }
 
-class _TiketScreenState extends State<TiketScreen> {
+class _TiketWidgetState extends State<TiketWidget> {
   List datas = [
     {
       "Pesanan": "Pesanan #20221027001",

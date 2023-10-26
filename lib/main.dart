@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tiket_saya/screens/tiket_saya.dart';
+import 'package:tiket_saya/screens/home_screen.dart';
+import 'package:tiket_saya/screens/tiket_saya_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const TiketSayaScreen(),
+      home: const HomeScreen(),
     );
   }
 }
