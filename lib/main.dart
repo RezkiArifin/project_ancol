@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tiket_saya/screens/home_screen.dart';
-import 'package:tiket_saya/screens/tiket_saya_screen.dart';
 
 void main() {
   runApp(const MyApp());
