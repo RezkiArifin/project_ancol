@@ -15,25 +15,22 @@ class ListMenuWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
-          // width: 40,
-          // height: 40,
+          width: 50,
+          height: 50,
           decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(6),
-            boxShadow: const [
-              BoxShadow(
-                offset: Offset(0, 4),
-                color: Colors.black26,
-                blurRadius: 6,
-                spreadRadius: 1,
-              ),
-            ],
-          ),
-          child: Image.asset(
-            image,
-            width: 50,
-            height: 50,
-          ),
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(6),
+              boxShadow: const [
+                BoxShadow(
+                  offset: Offset(0, 4),
+                  color: Colors.black26,
+                  blurRadius: 6,
+                  spreadRadius: 1,
+                ),
+              ],
+              image:
+                  DecorationImage(fit: BoxFit.fill, image: AssetImage(image))),
+          // child: Image.asset(image, fit: BoxFit.fill),
         ),
         const SizedBox(
           height: 5,

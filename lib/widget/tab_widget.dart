@@ -67,7 +67,7 @@ class _TabWidgetState extends State<TabWidget> {
             ]),
             SizedBox(
               //Add this to give height
-              height: 340,
+              height: 350,
               child: TabBarView(children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -94,7 +94,7 @@ class _TabWidgetState extends State<TabWidget> {
                           },
                           child: Padding(
                             padding: const EdgeInsets.only(
-                                bottom: 12, right: 17, left: 17),
+                                bottom: 12, right: 18, left: 18),
                             child: ListMenuWidget(
                               image: menu[index].image!,
                               label: menu[index].label!,
@@ -122,8 +122,6 @@ class _TabWidgetState extends State<TabWidget> {
     );
   }
 }
-
-class MenuWidget {}
 
 class MenuModel {
   String? image;

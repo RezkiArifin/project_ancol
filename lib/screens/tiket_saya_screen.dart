@@ -46,7 +46,7 @@ class _TiketSayaScreenState extends State<TiketSayaScreen> {
           Padding(
             padding: const EdgeInsets.only(right: 24),
             child: Image.asset(
-              "assets/messages-3.png",
+              "assets/images/messages-3.png",
               width: 32,
               height: 32,
             ),

@@ -65,7 +65,7 @@ class _TiketWidgetState extends State<TiketWidget> {
                         Row(
                           children: [
                             Image.asset(
-                              "assets/car.png",
+                              "assets/images/car.png",
                               width: 24,
                               height: 24,
                             ),
@@ -77,7 +77,7 @@ class _TiketWidgetState extends State<TiketWidget> {
                               width: 16,
                             ),
                             Image.asset(
-                              "assets/grown.png",
+                              "assets/images/grown.png",
                               width: 24,
                               height: 24,
                             ),
@@ -89,7 +89,7 @@ class _TiketWidgetState extends State<TiketWidget> {
                               width: 16,
                             ),
                             Image.asset(
-                              "assets/child.png",
+                              "assets/images/child.png",
                               width: 24,
                               height: 24,
                             ),
@@ -152,7 +152,7 @@ class _TiketWidgetState extends State<TiketWidget> {
                                   child: Row(
                                     children: [
                                       Image.asset(
-                                        "assets/scan-barcode.png",
+                                        "assets/images/scan-barcode.png",
                                         width: 18,
                                         height: 18,
                                       ),
@@ -185,7 +185,7 @@ class _TiketWidgetState extends State<TiketWidget> {
                                   child: Row(
                                     children: [
                                       Image.asset(
-                                        "assets/scan-barcode.png",
+                                        "assets/images/scan-barcode.png",
                                         width: 18,
                                         height: 18,
                                       ),
@@ -245,7 +245,7 @@ class _TiketWidgetState extends State<TiketWidget> {
                         width: 8,
                       ),
                       Image.asset(
-                        "assets/arrow-down.png",
+                        "assets/images/arrow-down.png",
                         width: 16,
                         height: 16,
                       )
