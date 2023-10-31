@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tiket_saya/screens/home_screen.dart';
 import 'package:tiket_saya/screens/tiket_saya_screen.dart';
+import 'package:tiket_saya/screens/wahana_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -45,13 +46,10 @@ class _BottomNavigationBarExampleState
   static const List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
       'Index 2: School',
       style: optionStyle,
     ),
+    WahanaScreen(),
     TiketSayaScreen(),
     Text(
       'Index 2: School',
