@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiket_saya/screens/tiket_promo.dart';
 import '../widget/tab_widget.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -69,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: SingleChildScrollView(
           child: Stack(
             children: <Widget>[
-              Image.asset('assets/images/mowgli_images.png'),
+              Image.asset('assets/images/fun-illusion_images.png'),
               Positioned(
                 bottom: 0.0,
                 left: 0.0,
@@ -91,7 +92,58 @@ class _HomeScreenState extends State<HomeScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Ada Wahana Baru di Dufan! Mowgli\'s Jungle Race 4D Simulator',
+                        'Lihat Keajaiban Dufan di Fun Illusion Dufan Bersama Rocky Oktori & Yoko Ferostal',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 10,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      Text(
+                        '25 Mei 2023',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 8,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+      SizedBox(
+        height: 120,
+        width: 327,
+        child: SingleChildScrollView(
+          child: Stack(
+            children: <Widget>[
+              Image.asset('assets/images/prewed_images.png'),
+              Positioned(
+                bottom: 0.0,
+                left: 0.0,
+                right: 0.0,
+                child: Container(
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Color.fromARGB(200, 0, 0, 0),
+                        Color.fromARGB(0, 0, 0, 0)
+                      ],
+                      begin: Alignment.bottomCenter,
+                      end: Alignment.topCenter,
+                    ),
+                  ),
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 10.0, horizontal: 20.0),
+                  child: const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Prewedding at Ancol Taman Impian',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 10,
@@ -142,7 +194,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          color: Color.fromARGB(255, 97, 210, 236),
+                          color: const Color.fromARGB(255, 97, 210, 236),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(11),
@@ -291,10 +343,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      const Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Padding(
+                          const Padding(
                             padding: EdgeInsets.only(top: 7, left: 25),
                             child: Text(
                               "Tiket dan Promo",
@@ -306,13 +358,22 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 15, right: 25),
-                            child: Text(
-                              "Lihat Semua",
-                              style: TextStyle(
-                                fontSize: 10,
-                                fontWeight: FontWeight.w600,
-                                color: Color.fromARGB(255, 42, 146, 170),
+                            padding: const EdgeInsets.only(top: 15, right: 25),
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const TiketPromo()));
+                              },
+                              child: const Text(
+                                "Lihat Semua",
+                                style: TextStyle(
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color.fromARGB(255, 42, 146, 170),
+                                ),
                               ),
                             ),
                           )

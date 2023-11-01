@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tiket_saya/screens/tiket_saya_screen.dart';
 import 'package:tiket_saya/screens/wahana_deskripsi_screen.dart';
 
 class WahanaScreen extends StatefulWidget {
@@ -85,36 +84,6 @@ class _WahanaScreenState extends State<WahanaScreen> {
               }),
         ));
   }
-}
-
-void _showWahanaScreen(BuildContext context, WahanaModel wahana) {
-  showModalBottomSheet(
-    context: context,
-    builder: (context) {
-      return Scaffold(
-        appBar: AppBar(
-          title: Text(wahana.name!),
-        ),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              width: 200,
-              height: 375,
-              child: Image.asset(
-                wahana.image,
-                fit: BoxFit.cover,
-              ),
-            ),
-            Text(
-              wahana.name!,
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-            ),
-          ],
-        ),
-      );
-    },
-  );
 }
 
 class WahanaModel {
