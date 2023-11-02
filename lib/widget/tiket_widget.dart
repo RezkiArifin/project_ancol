@@ -210,8 +210,8 @@ class _TiketWidgetState extends State<TiketWidget> {
                     ),
                   ),
                   if (datas.length > 1)
-                    const Divider(
-                      color: Colors.black,
+                    Divider(
+                      color: Colors.grey[300],
                       height: 1,
                     ),
                 ],

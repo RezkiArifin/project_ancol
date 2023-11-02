@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiket_saya/screens/promo_deskripsi.dart';
 
 class TiketPromo extends StatefulWidget {
   const TiketPromo({super.key});
@@ -12,16 +13,22 @@ class _TiketPromoState extends State<TiketPromo> {
     PromoModel(
         image: "assets/images/mowgli_images.png",
         label: "Ada Wahana Baru di Dufan! Mowgli's Jungle Race 4D Simulator",
-        date: "25 Mei 2023"),
+        date: "25 Mei 2023",
+        description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fermentum lacinia risus sit elit. Cras arcu integer natoque urna sit pellentesque. Pulvinar fermentum porttitor"),
     PromoModel(
         image: "assets/images/prewed_images.png",
         label: "Prewedding at Ancol Taman Impian",
-        date: "25 Mei 2023"),
+        date: "25 Mei 2023",
+        description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fermentum lacinia risus sit elit. Cras arcu integer natoque urna sit pellentesque. Pulvinar fermentum porttitor"),
     PromoModel(
         image: "assets/images/fun-illusion_images.png",
         label:
             "Lihat Keajaiban Dufan di Fun Illusion Dufan Bersama Rocky Oktori & Yoko Ferostal",
-        date: "25 Mei 2023"),
+        date: "25 Mei 2023",
+        description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fermentum lacinia risus sit elit. Cras arcu integer natoque urna sit pellentesque. Pulvinar fermentum porttitor"),
   ];
 
   @override
@@ -40,12 +47,12 @@ class _TiketPromoState extends State<TiketPromo> {
               promo.length,
               (index) => GestureDetector(
                 onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) => const UpdateFeatureScreen(),
-                  //   ),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => PromoDeskripsi(promo: promo[index]),
+                    ),
+                  );
                 },
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -99,6 +106,7 @@ class PromoModel {
   String? image;
   String? label;
   String? date;
+  String? description;
 
-  PromoModel({this.image, this.label, this.date});
+  PromoModel({this.image, this.label, this.date, this.description});
 }

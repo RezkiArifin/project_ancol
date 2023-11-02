@@ -91,7 +91,7 @@ class _BottomNavigationBarExampleState
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: const Color.fromARGB(255, 97, 210, 236),
         onTap: _onItemTapped,
         showUnselectedLabels: true,
         showSelectedLabels: true,
