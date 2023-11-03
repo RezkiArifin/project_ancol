@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tiket_saya/screens/call_center_screen.dart';
+import 'package:tiket_saya/screens/kebijakan_screen.dart';
+import 'package:tiket_saya/screens/sk_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -76,18 +79,20 @@ class ProfileScreen extends StatelessWidget {
             GestureDetector(
               onTap: () {},
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Image.asset(
-                    "assets/icon/user_icon.png",
-                    width: 24,
-                    height: 24,
-                  ),
-                  const SizedBox(
-                    width: 16,
-                  ),
-                  const Text("Pengaturan Akun"),
-                  const SizedBox(
-                    width: 178,
+                  Row(
+                    children: [
+                      Image.asset(
+                        "assets/icon/user_icon.png",
+                        width: 24,
+                        height: 24,
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      const Text("Pengaturan Akun"),
+                    ],
                   ),
                   Image.asset(
                     "assets/icon/arrow-right_icon.png",
@@ -103,18 +108,20 @@ class ProfileScreen extends StatelessWidget {
             GestureDetector(
               onTap: () {},
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Image.asset(
-                    "assets/icon/translate_icon.png",
-                    width: 24,
-                    height: 24,
-                  ),
-                  const SizedBox(
-                    width: 16,
-                  ),
-                  const Text("Bahasa"),
-                  const SizedBox(
-                    width: 245,
+                  Row(
+                    children: [
+                      Image.asset(
+                        "assets/icon/translate_icon.png",
+                        width: 24,
+                        height: 24,
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      const Text("Bahasa"),
+                    ],
                   ),
                   Image.asset(
                     "assets/icon/arrow-right_icon.png",
@@ -138,20 +145,29 @@ class ProfileScreen extends StatelessWidget {
               ),
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const CallCenterScreen(),
+                  ),
+                );
+              },
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Image.asset(
-                    "assets/icon/messages_icon.png",
-                    width: 24,
-                    height: 24,
-                  ),
-                  const SizedBox(
-                    width: 16,
-                  ),
-                  const Text("Hubungi Kami"),
-                  const SizedBox(
-                    width: 195,
+                  Row(
+                    children: [
+                      Image.asset(
+                        "assets/icon/messages_icon.png",
+                        width: 24,
+                        height: 24,
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      const Text("Hubungi Kami"),
+                    ],
                   ),
                   Image.asset(
                     "assets/icon/arrow-right_icon.png",
@@ -165,20 +181,29 @@ class ProfileScreen extends StatelessWidget {
               height: 24,
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SyaratKetentuanScreen(),
+                  ),
+                );
+              },
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Image.asset(
-                    "assets/icon/sk_icon.png",
-                    width: 24,
-                    height: 24,
-                  ),
-                  const SizedBox(
-                    width: 16,
-                  ),
-                  const Text("Syarat & Ketentuan"),
-                  const SizedBox(
-                    width: 160,
+                  Row(
+                    children: [
+                      Image.asset(
+                        "assets/icon/sk_icon.png",
+                        width: 24,
+                        height: 24,
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      const Text("Syarat & Ketentuan"),
+                    ],
                   ),
                   Image.asset(
                     "assets/icon/arrow-right_icon.png",
@@ -192,20 +217,29 @@ class ProfileScreen extends StatelessWidget {
               height: 24,
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const KebijakanScreen(),
+                  ),
+                );
+              },
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Image.asset(
-                    "assets/icon/shield_icon.png",
-                    width: 24,
-                    height: 24,
-                  ),
-                  const SizedBox(
-                    width: 16,
-                  ),
-                  const Text("Kebijakan"),
-                  const SizedBox(
-                    width: 225,
+                  Row(
+                    children: [
+                      Image.asset(
+                        "assets/icon/shield_icon.png",
+                        width: 24,
+                        height: 24,
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      const Text("Kebijakan"),
+                    ],
                   ),
                   Image.asset(
                     "assets/icon/arrow-right_icon.png",
