@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiket_saya/widget/global/text_field_global_widget.dart';
 
 class CallCenterScreen extends StatelessWidget {
   const CallCenterScreen({super.key});
@@ -19,8 +20,8 @@ class CallCenterScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                width: 327,
-                height: 350,
+                width: double.infinity,
+                height: 400,
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.all(
@@ -33,56 +34,50 @@ class CallCenterScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const TextField(
-                          decoration: InputDecoration(
-                            labelText: "Nama Lengkap",
-                            floatingLabelBehavior: FloatingLabelBehavior.always,
-                            hintText: "Masukkan Nama",
-                            hintStyle: TextStyle(fontSize: 16),
-                            // fillColor: Color(0xFFE7E0EC),
-                            // filled: true,
-                          ),
-                        ),
+                        const TextFieldWidget(
+                            height: 46,
+                            title: "Nama Lengkap",
+                            isValidTextField: true,
+                            errorMessage: "",
+                            hintText: "Masukkan Namamu",
+                            decoration: InputDecoration()),
                         const Padding(
                           padding: EdgeInsets.symmetric(vertical: 24),
-                          child: TextField(
-                            decoration: InputDecoration(
-                              labelText: "Alamat Email",
-                              floatingLabelBehavior:
-                                  FloatingLabelBehavior.always,
-                              hintText: "Masukkan Email",
-                              hintStyle: TextStyle(fontSize: 16),
-                              // fillColor: Color(0xFFE7E0EC),
-                              // filled: true,
-                            ),
-                          ),
+                          child: TextFieldWidget(
+                              height: 46,
+                              title: "Alamat Email",
+                              isValidTextField: true,
+                              errorMessage: "",
+                              hintText: "Masukkan Emailmu",
+                              decoration: InputDecoration()),
                         ),
-                        const TextField(
-                          decoration: InputDecoration(
-                            labelText: "Masalah",
-                            floatingLabelBehavior: FloatingLabelBehavior.always,
+                        const TextFieldWidget(
+                            height: 82,
+                            title: "Masalah",
+                            isValidTextField: true,
+                            errorMessage: "",
                             hintText: "Tuliskan Masalahmu",
-                            hintStyle: TextStyle(fontSize: 16),
-                            // fillColor: Color(0xFFE7E0EC),
-                            // filled: true,
-                          ),
-                        ),
+                            decoration: InputDecoration()),
                         const SizedBox(
                           height: 24,
                         ),
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFF01A7CC),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(6),
+                        SizedBox(
+                          height: 42,
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xFF01A7CC),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(6),
+                              ),
+                              // padding: const EdgeInsets.symmetric(
+                              // horizontal: 145, vertical: 12),
                             ),
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 130, vertical: 12),
-                          ),
-                          onPressed: () {},
-                          child: const Text(
-                            'Kirim',
-                            style: TextStyle(color: Colors.white),
+                            onPressed: () {},
+                            child: const Text(
+                              'Kirim',
+                              style: TextStyle(color: Colors.white),
+                            ),
                           ),
                         )
                       ],

@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:tiket_saya/screens/beli_tiket_screen.dart';
 
 import 'package:tiket_saya/screens/wahana_screen.dart';
 
@@ -96,7 +97,14 @@ class WahanaDeskripsi extends StatelessWidget {
                       ),
                       padding: const EdgeInsets.symmetric(horizontal: 6),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const BeliTiketScreen(),
+                        ),
+                      );
+                    },
                     child: const Text(
                       'Beli Tiket',
                       style: TextStyle(color: Colors.white),
