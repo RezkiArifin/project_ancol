@@ -16,48 +16,48 @@ class _BeliTiketScreenState extends State<BeliTiketScreen> {
   String _range = '';
   String _rangeCount = '';
 
-  int _tiketDewasa = 0;
-  int _tiketAnak = 0;
-  int _tiketMobil = 0;
+  int tiketDewasa = 0;
+  int tiketAnak = 0;
+  int tiketMobil = 0;
 
   void _incrementCounterDewasa() {
     setState(() {
-      _tiketDewasa++;
+      tiketDewasa++;
     });
   }
 
   void _decrementCounterDewasa() {
     setState(() {
-      if (_tiketDewasa > 0) {
-        _tiketDewasa--;
+      if (tiketDewasa > 0) {
+        tiketDewasa--;
       }
     });
   }
 
   void _incrementCounterAnak() {
     setState(() {
-      _tiketAnak++;
+      tiketAnak++;
     });
   }
 
   void _decrementCounterAnak() {
     setState(() {
-      if (_tiketAnak > 0) {
-        _tiketAnak--;
+      if (tiketAnak > 0) {
+        tiketAnak--;
       }
     });
   }
 
   void _incrementCounterMobil() {
     setState(() {
-      _tiketMobil++;
+      tiketMobil++;
     });
   }
 
   void _decrementCounterMobil() {
     setState(() {
-      if (_tiketMobil > 0) {
-        _tiketMobil--;
+      if (tiketMobil > 0) {
+        tiketMobil--;
       }
     });
   }
@@ -216,7 +216,7 @@ class _BeliTiketScreenState extends State<BeliTiketScreen> {
                                     Padding(
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 12),
-                                      child: Text(_tiketDewasa.toString()),
+                                      child: Text(tiketDewasa.toString()),
                                     ),
                                     GestureDetector(
                                       onTap: () => _incrementCounterDewasa(),
@@ -298,7 +298,7 @@ class _BeliTiketScreenState extends State<BeliTiketScreen> {
                                     Padding(
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 12),
-                                      child: Text(_tiketAnak.toString()),
+                                      child: Text(tiketAnak.toString()),
                                     ),
                                     GestureDetector(
                                       onTap: () => _incrementCounterAnak(),
@@ -384,7 +384,7 @@ class _BeliTiketScreenState extends State<BeliTiketScreen> {
                                     Padding(
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 12),
-                                      child: Text(_tiketMobil.toString()),
+                                      child: Text(tiketMobil.toString()),
                                     ),
                                     GestureDetector(
                                       onTap: () => _incrementCounterMobil(),
@@ -432,7 +432,7 @@ class _BeliTiketScreenState extends State<BeliTiketScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const KonfirmasiPesananScreen(),
+                          builder: (context) => KonfirmasiPesananScreen(),
                         ),
                       );
                     },
