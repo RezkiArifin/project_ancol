@@ -11,6 +11,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  bool _isEyeOpen = true;
+
   List<Widget> _images(BuildContext context) {
     return [
       SizedBox(
@@ -202,6 +204,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Container(
+                                width: 140,
+                                height: 50,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(15),
                                   color: const Color(0xffFFFFFF),
@@ -215,7 +219,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 child: Padding(
                                   padding: const EdgeInsets.symmetric(
-                                      horizontal: 10, vertical: 6),
+                                      horizontal: 15, vertical: 6),
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -243,15 +247,45 @@ class _HomeScreenState extends State<HomeScreen> {
                                         height: 5,
                                       ),
                                       Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
-                                          const Padding(
-                                            padding: EdgeInsets.only(right: 20),
-                                            child: Text("**********"),
-                                          ),
-                                          Image.asset(
-                                            "assets/icon/eye-close_icon.png",
-                                            width: 10,
-                                            height: 10,
+                                          _isEyeOpen
+                                              ? const Text(
+                                                  "**********",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontSize: 10),
+                                                )
+                                              : const Text(
+                                                  "Rp. 123456789",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontSize: 10),
+                                                ),
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                right: 10),
+                                            child: InkWell(
+                                              onTap: () {
+                                                setState(() {
+                                                  _isEyeOpen = !_isEyeOpen;
+                                                });
+                                              },
+                                              child: _isEyeOpen
+                                                  ? Image.asset(
+                                                      "assets/icon/eye-close_icon.png",
+                                                      width: 15,
+                                                      height: 15,
+                                                    )
+                                                  : Image.asset(
+                                                      "assets/icon/eye-open_icon.png",
+                                                      width: 15,
+                                                      height: 15,
+                                                    ),
+                                            ),
                                           )
                                         ],
                                       ),
@@ -259,71 +293,198 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                 ),
                               ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(15),
-                                  color: const Color(0xffFFFFFF),
-                                  boxShadow: const [
-                                    BoxShadow(
-                                        color: Colors.black26,
-                                        spreadRadius: 1,
-                                        blurRadius: 6,
-                                        offset: Offset(0, 4)),
-                                  ],
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 10, vertical: 10),
-                                  child: Column(
-                                    children: [
-                                      Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Image.asset(
-                                            "assets/icon/dashboard_icon.png",
-                                            width: 14,
-                                            height: 17,
+                              _isEyeOpen
+                                  ? Container(
+                                      width: 140,
+                                      height: 50,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(15),
+                                        color: const Color(0xffFFFFFF),
+                                        boxShadow: const [
+                                          BoxShadow(
+                                              color: Colors.black26,
+                                              spreadRadius: 1,
+                                              blurRadius: 6,
+                                              offset: Offset(0, 4)),
+                                        ],
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 15, vertical: 6),
+                                        child: Column(
+                                          children: [
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Image.asset(
+                                                  "assets/icon/dashboard_icon.png",
+                                                  width: 14,
+                                                  height: 17,
+                                                ),
+                                                const Padding(
+                                                  padding:
+                                                      EdgeInsets.only(left: 10),
+                                                  child: Text(
+                                                    "Status",
+                                                    style: TextStyle(
+                                                      fontSize: 10,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            const SizedBox(
+                                              height: 5,
+                                            ),
+                                            const Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text(
+                                                  "Nonaktif",
+                                                  style: TextStyle(
+                                                    fontSize: 10,
+                                                    color: Color(0xffE41313),
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  width: 15,
+                                                ),
+                                                Text(
+                                                  "Aktivasi",
+                                                  style: TextStyle(
+                                                    fontSize: 10,
+                                                    color: Color(0xffE41313),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    )
+                                  : Row(
+                                      children: [
+                                        Container(
+                                          width: 50,
+                                          height: 50,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(15),
+                                            color: const Color(0xffFFFFFF),
+                                            boxShadow: const [
+                                              BoxShadow(
+                                                  color: Colors.black26,
+                                                  spreadRadius: 1,
+                                                  blurRadius: 6,
+                                                  offset: Offset(0, 4)),
+                                            ],
                                           ),
-                                          const Padding(
-                                            padding: EdgeInsets.only(left: 10),
-                                            child: Text(
-                                              "Status",
-                                              style: TextStyle(
-                                                fontSize: 10,
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Image.asset(
+                                                "assets/icon/qr-blue_icon.png",
+                                                width: 15,
+                                                height: 15,
                                               ),
+                                              const SizedBox(
+                                                height: 7,
+                                              ),
+                                              const Text(
+                                                "Bayar",
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 10,
+                                                    color: Color(0xff01A7CC)),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 10),
+                                          child: Container(
+                                            width: 50,
+                                            height: 50,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(15),
+                                              color: const Color(0xffFFFFFF),
+                                              boxShadow: const [
+                                                BoxShadow(
+                                                    color: Colors.black26,
+                                                    spreadRadius: 1,
+                                                    blurRadius: 6,
+                                                    offset: Offset(0, 4)),
+                                              ],
+                                            ),
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Image.asset(
+                                                  "assets/icon/add_icon.png",
+                                                  width: 15,
+                                                  height: 15,
+                                                ),
+                                                const SizedBox(
+                                                  height: 7,
+                                                ),
+                                                const Text(
+                                                  "Isi Saldo",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontSize: 10,
+                                                      color: Color(0xff01A7CC)),
+                                                )
+                                              ],
                                             ),
                                           ),
-                                        ],
-                                      ),
-                                      const SizedBox(
-                                        height: 5,
-                                      ),
-                                      const Row(
-                                        children: [
-                                          Text(
-                                            "Nonaktif",
-                                            style: TextStyle(
-                                              fontSize: 10,
-                                              color: Color(0xffE41313),
-                                            ),
+                                        ),
+                                        Container(
+                                          width: 50,
+                                          height: 50,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(15),
+                                            color: const Color(0xffFFFFFF),
+                                            boxShadow: const [
+                                              BoxShadow(
+                                                  color: Colors.black26,
+                                                  spreadRadius: 1,
+                                                  blurRadius: 6,
+                                                  offset: Offset(0, 4)),
+                                            ],
                                           ),
-                                          SizedBox(
-                                            width: 15,
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Image.asset(
+                                                "assets/icon/riwayat_icon.png",
+                                                width: 15,
+                                                height: 15,
+                                              ),
+                                              const SizedBox(
+                                                height: 7,
+                                              ),
+                                              const Text(
+                                                "Riwayat",
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 10,
+                                                    color: Color(0xff01A7CC)),
+                                              )
+                                            ],
                                           ),
-                                          Text(
-                                            "Aktivasi",
-                                            style: TextStyle(
-                                              fontSize: 10,
-                                              color: Color(0xffE41313),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              )
+                                        )
+                                      ],
+                                    )
                             ],
                           ),
                         ),

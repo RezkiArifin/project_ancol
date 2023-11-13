@@ -10,6 +10,7 @@ class KonfirmasiPesananScreen extends StatefulWidget {
 
 class _KonfirmasiPesananScreenState extends State<KonfirmasiPesananScreen> {
   bool isChecked = false;
+  bool _isPayment = false;
 
   @override
   Widget build(BuildContext context) {
@@ -194,39 +195,137 @@ class _KonfirmasiPesananScreenState extends State<KonfirmasiPesananScreen> {
                   const SizedBox(
                     height: 16,
                   ),
-                  Container(
-                    width: double.infinity,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      color: const Color(0xffE8FAFB),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text(
-                            "Pilih Metode Pembayaran",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 12,
-                                color: Color(0xff01A7CC)),
-                          ),
-                          Image.asset(
-                            "assets/icon/arrow-right_icon.png",
-                            width: 18,
-                            height: 18,
-                            color: const Color(0xff01A7CC),
-                          )
-                        ],
-                      ),
-                    ),
-                  )
+                  InkWell(
+                      onTap: () {
+                        setState(() {
+                          _isPayment = !_isPayment;
+                        });
+                      },
+                      child: _isPayment
+                          ? Container(
+                              width: double.infinity,
+                              height: 276,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                color: Colors.white,
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 24, vertical: 38),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Text(
+                                      "Pilih Metode Pembayaran",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 12),
+                                    ),
+                                    const SizedBox(
+                                      height: 16,
+                                    ),
+                                    Container(
+                                      width: double.infinity,
+                                      height: 50,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(6),
+                                        color: const Color(0xffF5F5F5),
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 12, right: 16),
+                                            child: Image.asset(
+                                              "assets/icon/jakone_icon.png",
+                                              width: 52,
+                                              height: 26,
+                                            ),
+                                          ),
+                                          const Text(
+                                            "JakOnePay",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w600,
+                                                fontSize: 12),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 8),
+                                      child: Container(
+                                        width: double.infinity,
+                                        height: 50,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(6),
+                                          color: const Color(0xffF5F5F5),
+                                        ),
+                                        child: Row(
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 12, right: 16),
+                                              child: Image.asset(
+                                                "assets/icon/qris_icon.png",
+                                                width: 48,
+                                                height: 26,
+                                              ),
+                                            ),
+                                            const Text(
+                                              "QRIS Bank DKI",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: 12),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            )
+                          : Container(
+                              width: double.infinity,
+                              height: 50,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                color: const Color(0xffE8FAFB),
+                              ),
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 16),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    const Text(
+                                      "Pilih Metode Pembayaran",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 12,
+                                          color: Color(0xff01A7CC)),
+                                    ),
+                                    Image.asset(
+                                      "assets/icon/arrow-right_icon.png",
+                                      width: 18,
+                                      height: 18,
+                                      color: const Color(0xff01A7CC),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ))
                 ],
               ),
             ),
-            const SizedBox(height: 80),
+            _isPayment
+                ? const SizedBox(height: 20)
+                : const SizedBox(
+                    height: 80,
+                  ),
             Container(
               height: 72,
               width: double.infinity,
