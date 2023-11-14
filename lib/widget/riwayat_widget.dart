@@ -1,30 +1,21 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
+import '../screens/tiket_saya_screen.dart';
+
 class RiwayatScreen extends StatefulWidget {
-  const RiwayatScreen({super.key});
+  const RiwayatScreen({
+    Key? key,
+    required this.datas,
+  }) : super(key: key);
+
+  final List<TiketModel> datas;
 
   @override
   State<RiwayatScreen> createState() => _RiwayatScreenState();
 }
 
 class _RiwayatScreenState extends State<RiwayatScreen> {
-  List riwayat = [
-    {
-      "jenis": "Pembelian Tiket",
-      "waktu": "27 Oktober 2022",
-      "total": "Rp. 150.000"
-    },
-    {
-      "jenis": "Sea World Ancol",
-      "waktu": "27 Oktober 2022",
-      "total": "Rp. 100.000"
-    },
-    {
-      "jenis": "Pembelian Tiket",
-      "waktu": "27 Oktober 2022",
-      "total": "Rp. 150.000"
-    },
-  ];
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -71,7 +62,7 @@ class _RiwayatScreenState extends State<RiwayatScreen> {
         ),
         Wrap(
           children: List.generate(
-            riwayat.length,
+            widget.datas.length,
             (index) => Column(
               children: [
                 Padding(
@@ -87,11 +78,11 @@ class _RiwayatScreenState extends State<RiwayatScreen> {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(riwayat[index]["jenis"]),
+                                Text(widget.datas[index].namaTiket.toString()),
                                 const SizedBox(
                                   height: 8,
                                 ),
-                                Text(riwayat[index]["waktu"],
+                                Text(widget.datas[index].waktu.toString(),
                                     style: const TextStyle(
                                         fontSize: 10,
                                         fontWeight: FontWeight.w400))
@@ -105,7 +96,7 @@ class _RiwayatScreenState extends State<RiwayatScreen> {
                                       fontSize: 10,
                                       fontWeight: FontWeight.w400),
                                 ),
-                                Text(riwayat[index]["total"],
+                                Text(widget.datas[index].total.toString(),
                                     style: const TextStyle(
                                         fontSize: 12,
                                         fontWeight: FontWeight.w600)),
@@ -120,15 +111,30 @@ class _RiwayatScreenState extends State<RiwayatScreen> {
                       Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6),
-                          color: const Color(0xFFE8FAFB),
+                          color: (widget.datas[index].status == "Sudah Bayar")
+                              ? const Color(0xFFE8FAFB)
+                              : (widget.datas[index].status == "Belum Bayar")
+                                  ? const Color(0xffFFF7E8)
+                                  : (widget.datas[index].status == "Dibatalkan")
+                                      ? const Color(0xffFFF4F2)
+                                      : const Color(0xFFE8FAFB),
                         ),
-                        child: const Padding(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 12, vertical: 8),
                           child: Text(
-                            "Sudah Bayar",
+                            widget.datas[index].status.toString(),
                             style: TextStyle(
-                              color: Color(0xFF01A7CC),
+                              color:
+                                  (widget.datas[index].status == "Sudah Bayar")
+                                      ? const Color(0xFF01A7CC)
+                                      : (widget.datas[index].status ==
+                                              "Belum Bayar")
+                                          ? const Color(0xffFAAD14)
+                                          : (widget.datas[index].status ==
+                                                  "Dibatalkan")
+                                              ? const Color(0xffCB3A31)
+                                              : const Color(0xFF01A7CC),
                             ),
                           ),
                         ),
@@ -139,7 +145,7 @@ class _RiwayatScreenState extends State<RiwayatScreen> {
                     ],
                   ),
                 ),
-                if (riwayat.length > 1)
+                if (widget.datas.length > 1)
                   Divider(
                     color: Colors.grey[300],
                     height: 1,

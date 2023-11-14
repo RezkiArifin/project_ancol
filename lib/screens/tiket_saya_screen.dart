@@ -12,6 +12,36 @@ class TiketSayaScreen extends StatefulWidget {
 class _TiketSayaScreenState extends State<TiketSayaScreen> {
   int _selectedIndex = 0;
 
+  List<TiketModel> datas = [
+    TiketModel(
+        pesanan: "Pesanan #20221027001",
+        waktu: "27 Oktober 2022",
+        mobil: "1 Mobil",
+        dewasa: "2 Dewasa",
+        anak: "1 Anak",
+        total: "Rp. 150.000",
+        namaTiket: "Pembelian Tiket",
+        status: "Sudah Bayar"),
+    TiketModel(
+        pesanan: "Pesanan #20221027002",
+        waktu: "17 November 2022",
+        mobil: "1 Mobil",
+        dewasa: "3 Dewasa",
+        anak: "2 Anak",
+        total: "Rp. 250.000",
+        namaTiket: "Sea World Ancol",
+        status: "Belum Bayar"),
+    TiketModel(
+        pesanan: "Pesanan #20221027003",
+        waktu: "31 Desember 2022",
+        mobil: "1 Mobil",
+        dewasa: "2 Dewasa",
+        anak: "3 Anak",
+        total: "Rp. 200.000",
+        namaTiket: "Pembelian Tiket",
+        status: "Dibatalkan"),
+  ];
+
   Widget _buttonBuilder(Widget selectedButton, String title, int myIndex) {
     return GestureDetector(
       onTap: () {
@@ -62,13 +92,28 @@ class _TiketSayaScreenState extends State<TiketSayaScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    _buttonBuilder(const TiketWidget(), "Tiket Saya", 0),
                     _buttonBuilder(
-                        const RiwayatScreen(), "Riwayat Pembayaran", 1),
+                        TiketWidget(
+                          datas: datas,
+                        ),
+                        "Tiket Saya",
+                        0),
+                    _buttonBuilder(
+                        RiwayatScreen(
+                          datas: datas,
+                        ),
+                        "Riwayat Pembayaran",
+                        1),
                   ],
                 ),
-                if (_selectedIndex == 0) const TiketWidget(),
-                if (_selectedIndex == 1) const RiwayatScreen(),
+                if (_selectedIndex == 0)
+                  TiketWidget(
+                    datas: datas,
+                  ),
+                if (_selectedIndex == 1)
+                  RiwayatScreen(
+                    datas: datas,
+                  ),
               ],
             ),
           ],
@@ -76,4 +121,26 @@ class _TiketSayaScreenState extends State<TiketSayaScreen> {
       ),
     );
   }
+}
+
+class TiketModel {
+  final String? pesanan;
+  final String? waktu;
+  final String? mobil;
+  final String? dewasa;
+  final String? anak;
+  final String? total;
+  final String? namaTiket;
+  final String? status;
+
+  TiketModel({
+    this.pesanan,
+    this.waktu,
+    this.mobil,
+    this.dewasa,
+    this.anak,
+    this.total,
+    this.namaTiket,
+    this.status,
+  });
 }

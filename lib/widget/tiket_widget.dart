@@ -1,40 +1,20 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
-class TiketWidget extends StatefulWidget {
-  const TiketWidget({super.key});
+import '../screens/tiket_saya_screen.dart';
 
+class TiketWidget extends StatefulWidget {
+  const TiketWidget({
+    Key? key,
+    required this.datas,
+  }) : super(key: key);
+
+  final List<TiketModel> datas;
   @override
   State<TiketWidget> createState() => _TiketWidgetState();
 }
 
 class _TiketWidgetState extends State<TiketWidget> {
-  List datas = [
-    {
-      "Pesanan": "Pesanan #20221027001",
-      "waktu": "27 Oktober 2022",
-      "mobil": "1 Mobil",
-      "dewasa": "2 Dewasa",
-      "anak": "1 Anak",
-      "total": "Rp. 150.000"
-    },
-    {
-      "Pesanan": "Pesanan #20221027002",
-      "waktu": "17 November 2022",
-      "mobil": "1 Mobil",
-      "dewasa": "3 Dewasa",
-      "anak": "2 Anak",
-      "total": "Rp. 250.000"
-    },
-    {
-      "Pesanan": "Pesanan #20221027003",
-      "waktu": "31 Desember 2022",
-      "mobil": "1 Mobil",
-      "dewasa": "2 Dewasa",
-      "anak": "3 Anak",
-      "total": "Rp. 200.000"
-    },
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -43,7 +23,7 @@ class _TiketWidgetState extends State<TiketWidget> {
         children: <Widget>[
           Wrap(
             children: List.generate(
-              datas.length,
+              widget.datas.length,
               (index) => Column(
                 children: [
                   Padding(
@@ -56,8 +36,8 @@ class _TiketWidgetState extends State<TiketWidget> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(datas[index]["Pesanan"].toString()),
-                              Text(datas[index]["waktu"].toString())
+                              Text(widget.datas[index].pesanan.toString()),
+                              Text(widget.datas[index].waktu.toString())
                             ],
                           ),
                         ),
@@ -71,7 +51,7 @@ class _TiketWidgetState extends State<TiketWidget> {
                             ),
                             Padding(
                               padding: const EdgeInsets.only(left: 8),
-                              child: Text(datas[index]["mobil"].toString()),
+                              child: Text(widget.datas[index].mobil.toString()),
                             ),
                             const SizedBox(
                               width: 16,
@@ -83,7 +63,8 @@ class _TiketWidgetState extends State<TiketWidget> {
                             ),
                             Padding(
                               padding: const EdgeInsets.only(left: 8),
-                              child: Text(datas[index]["dewasa"].toString()),
+                              child:
+                                  Text(widget.datas[index].dewasa.toString()),
                             ),
                             const SizedBox(
                               width: 16,
@@ -95,7 +76,7 @@ class _TiketWidgetState extends State<TiketWidget> {
                             ),
                             Padding(
                               padding: const EdgeInsets.only(left: 8),
-                              child: Text(datas[index]["anak"].toString()),
+                              child: Text(widget.datas[index].anak.toString()),
                             ),
                           ],
                         ),
@@ -126,90 +107,115 @@ class _TiketWidgetState extends State<TiketWidget> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             const Text("Total Pembayaran"),
-                            Text(datas[index]["total"].toString())
+                            Text(widget.datas[index].total.toString())
                           ],
                         ),
                         const SizedBox(
                           height: 24,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            SizedBox(
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: const Color(0xFF01A7CC),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(6),
-                                  ),
-                                  padding:
-                                      const EdgeInsets.symmetric(horizontal: 6),
+                        (widget.datas[index].status == "Dibatalkan")
+                            ? Container(
+                                width: double.infinity,
+                                height: 42,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(6),
+                                  color: const Color(0XFFEEF7EE),
                                 ),
-                                onPressed: () {},
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 12, vertical: 6),
-                                  child: Row(
-                                    children: [
-                                      Image.asset(
-                                        "assets/images/scan-barcode.png",
-                                        width: 18,
-                                        height: 18,
+                                child: const Center(
+                                  child: Text(
+                                    "Detail",
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w600,
+                                        color: Color(0xff01A7CC)),
+                                  ),
+                                ),
+                              )
+                            : Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  SizedBox(
+                                    child: ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor:
+                                            const Color(0xFF01A7CC),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(6),
+                                        ),
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 6),
                                       ),
-                                      const Padding(
-                                        padding: EdgeInsets.only(left: 8),
-                                        child: Text(
-                                          'QR Kendaraan',
-                                          style: TextStyle(color: Colors.white),
+                                      onPressed: () {},
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 12, vertical: 6),
+                                        child: Row(
+                                          children: [
+                                            Image.asset(
+                                              "assets/images/scan-barcode.png",
+                                              width: 18,
+                                              height: 18,
+                                            ),
+                                            const Padding(
+                                              padding: EdgeInsets.only(left: 8),
+                                              child: Text(
+                                                'QR Kendaraan',
+                                                style: TextStyle(
+                                                    color: Colors.white),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
-                                    ],
+                                    ),
                                   ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: const Color(0xFF01A7CC),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(6),
-                                  ),
-                                  padding:
-                                      const EdgeInsets.symmetric(horizontal: 6),
-                                ),
-                                onPressed: () {},
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 12, vertical: 6),
-                                  child: Row(
-                                    children: [
-                                      Image.asset(
-                                        "assets/images/scan-barcode.png",
-                                        width: 18,
-                                        height: 18,
+                                  SizedBox(
+                                    child: ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor:
+                                            const Color(0xFF01A7CC),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(6),
+                                        ),
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 6),
                                       ),
-                                      const Padding(
-                                        padding: EdgeInsets.only(left: 8),
-                                        child: Text(
-                                          'QR Pengunjung',
-                                          style: TextStyle(color: Colors.white),
+                                      onPressed: () {},
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 12, vertical: 6),
+                                        child: Row(
+                                          children: [
+                                            Image.asset(
+                                              "assets/images/scan-barcode.png",
+                                              width: 18,
+                                              height: 18,
+                                            ),
+                                            const Padding(
+                                              padding: EdgeInsets.only(left: 8),
+                                              child: Text(
+                                                'QR Pengunjung',
+                                                style: TextStyle(
+                                                    color: Colors.white),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
-                                    ],
+                                    ),
                                   ),
-                                ),
+                                ],
                               ),
-                            ),
-                          ],
-                        ),
                         const SizedBox(
                           height: 10,
                         ),
                       ],
                     ),
                   ),
-                  if (datas.length > 1)
+                  if (widget.datas.length > 1)
                     Divider(
                       color: Colors.grey[300],
                       height: 1,
