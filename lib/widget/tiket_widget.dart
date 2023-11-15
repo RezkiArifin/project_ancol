@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
+import '../screens/detail_tiket_screen.dart';
 import '../screens/tiket_saya_screen.dart';
 
 class TiketWidget extends StatefulWidget {
@@ -10,6 +11,7 @@ class TiketWidget extends StatefulWidget {
   }) : super(key: key);
 
   final List<TiketModel> datas;
+
   @override
   State<TiketWidget> createState() => _TiketWidgetState();
 }
@@ -83,23 +85,38 @@ class _TiketWidgetState extends State<TiketWidget> {
                         const SizedBox(
                           height: 24,
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(6),
-                            color: const Color(0xFF01A7CC),
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 12, vertical: 8),
-                            child: Text(
-                              "Aktif hingga 30 Oktober 2022, Pukul 09:00 WIB",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 10,
+                        (widget.datas[index].status == "Dibatalkan")
+                            ? Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(6),
+                                    color: const Color(0xffFFF4F2)),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 12, vertical: 8),
+                                  child: Text(
+                                    widget.datas[index].status.toString(),
+                                    style: const TextStyle(
+                                        color: Color(0xffCB3A31)),
+                                  ),
+                                ),
+                              )
+                            : Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(6),
+                                  color: const Color(0xFF01A7CC),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 12, vertical: 8),
+                                  child: Text(
+                                    "Aktif hingga ${widget.datas[index].waktu.toString()}, Pukul 09:00 WIB",
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 10,
+                                    ),
+                                  ),
+                                ),
                               ),
-                            ),
-                          ),
-                        ),
                         const SizedBox(
                           height: 24,
                         ),
@@ -114,20 +131,32 @@ class _TiketWidgetState extends State<TiketWidget> {
                           height: 24,
                         ),
                         (widget.datas[index].status == "Dibatalkan")
-                            ? Container(
-                                width: double.infinity,
-                                height: 42,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(6),
-                                  color: const Color(0XFFEEF7EE),
-                                ),
-                                child: const Center(
-                                  child: Text(
-                                    "Detail",
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w600,
-                                        color: Color(0xff01A7CC)),
+                            ? GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => DetailTiketScreen(
+                                        datas: widget.datas[index],
+                                      ),
+                                    ),
+                                  );
+                                },
+                                child: Container(
+                                  width: double.infinity,
+                                  height: 42,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(6),
+                                    color: const Color(0XFFEEF7EE),
+                                  ),
+                                  child: const Center(
+                                    child: Text(
+                                      "Detail",
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w600,
+                                          color: Color(0xff01A7CC)),
+                                    ),
                                   ),
                                 ),
                               )
