@@ -38,7 +38,19 @@ class _TiketWidgetState extends State<TiketWidget> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(widget.datas[index].pesanan.toString()),
+                              InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              DetailTiketScreen(
+                                            datas: widget.datas[index],
+                                          ),
+                                        ));
+                                  },
+                                  child: Text(
+                                      widget.datas[index].pesanan.toString())),
                               Text(widget.datas[index].waktu.toString())
                             ],
                           ),
@@ -85,7 +97,7 @@ class _TiketWidgetState extends State<TiketWidget> {
                         const SizedBox(
                           height: 24,
                         ),
-                        (widget.datas[index].status == "Dibatalkan")
+                        (widget.datas[index].pembayaran == "Kadaluarsa")
                             ? Container(
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(6),
@@ -94,7 +106,7 @@ class _TiketWidgetState extends State<TiketWidget> {
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 12, vertical: 8),
                                   child: Text(
-                                    widget.datas[index].status.toString(),
+                                    widget.datas[index].pembayaran.toString(),
                                     style: const TextStyle(
                                         color: Color(0xffCB3A31)),
                                   ),

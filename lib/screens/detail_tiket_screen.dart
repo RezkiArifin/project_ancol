@@ -27,14 +27,29 @@ class DetailTiketScreen extends StatelessWidget {
             children: [
               Container(
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(6),
-                    color: const Color(0xffFFF4F2)),
+                  borderRadius: BorderRadius.circular(6),
+                  color: (datas.status == "Aktif")
+                      ? const Color(0xFFE8FAFB)
+                      : (datas.status == "Selesai")
+                          ? const Color(0xffFFF7E8)
+                          : (datas.status == "Dibatalkan")
+                              ? const Color(0xffFFF4F2)
+                              : const Color(0xFFE8FAFB),
+                ),
                 child: Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                   child: Text(
                     datas.status.toString(),
-                    style: const TextStyle(color: Color(0xffCB3A31)),
+                    style: TextStyle(
+                      color: (datas.status == "Aktif")
+                          ? const Color(0xFF01A7CC)
+                          : (datas.status == "Selesai")
+                              ? const Color(0xFF01A7CC)
+                              : (datas.status == "Dibatalkan")
+                                  ? const Color(0xffCB3A31)
+                                  : const Color(0xFF01A7CC),
+                    ),
                   ),
                 ),
               ),
@@ -137,10 +152,47 @@ class DetailTiketScreen extends StatelessWidget {
                   )
                 ],
               ),
-              const Padding(
-                padding: EdgeInsets.only(top: 24, bottom: 16),
-                child: Text("Tiket Pengunjung"),
-              ),
+              (datas.status == "Aktif")
+                  ? Padding(
+                      padding: const EdgeInsets.only(top: 16, bottom: 24),
+                      child: SizedBox(
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xFF01A7CC),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(6),
+                            ),
+                            padding: const EdgeInsets.symmetric(horizontal: 6),
+                          ),
+                          onPressed: () {},
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 12, vertical: 10),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  "assets/images/scan-barcode.png",
+                                  width: 18,
+                                  height: 18,
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.only(left: 8),
+                                  child: Text(
+                                    'Tunjukkan QR',
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    )
+                  : const Padding(
+                      padding: EdgeInsets.only(top: 24, bottom: 16),
+                      child: Text("Tiket Pengunjung"),
+                    ),
               Row(
                 children: [
                   Image.asset(
@@ -178,9 +230,46 @@ class DetailTiketScreen extends StatelessWidget {
                   )
                 ],
               ),
-              const SizedBox(
-                height: 24,
-              ),
+              (datas.status == "Aktif")
+                  ? Padding(
+                      padding: const EdgeInsets.only(top: 16, bottom: 24),
+                      child: SizedBox(
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xFF01A7CC),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(6),
+                            ),
+                            padding: const EdgeInsets.symmetric(horizontal: 6),
+                          ),
+                          onPressed: () {},
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 12, vertical: 10),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  "assets/images/scan-barcode.png",
+                                  width: 18,
+                                  height: 18,
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.only(left: 8),
+                                  child: Text(
+                                    'Tunjukkan QR',
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    )
+                  : const SizedBox(
+                      height: 24,
+                    ),
               const Divider(
                 height: 1,
                 color: Color(0xffC2C2C2),

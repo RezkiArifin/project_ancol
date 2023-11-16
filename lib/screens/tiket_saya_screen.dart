@@ -1,4 +1,6 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
 import 'package:tiket_saya/widget/riwayat_widget.dart';
 import 'package:tiket_saya/widget/tiket_widget.dart';
 
@@ -21,7 +23,8 @@ class _TiketSayaScreenState extends State<TiketSayaScreen> {
         anak: "1 Anak",
         total: "Rp. 150.000",
         namaTiket: "Pembelian Tiket",
-        status: "Sudah Bayar"),
+        pembayaran: "Sudah Bayar",
+        status: "Aktif"),
     TiketModel(
         pesanan: "Pesanan #20221027002",
         waktu: "17 November 2022",
@@ -30,7 +33,8 @@ class _TiketSayaScreenState extends State<TiketSayaScreen> {
         anak: "2 Anak",
         total: "Rp. 250.000",
         namaTiket: "Sea World Ancol",
-        status: "Belum Bayar"),
+        pembayaran: "Belum Bayar",
+        status: "Aktif"),
     TiketModel(
         pesanan: "Pesanan #20221027003",
         waktu: "31 Desember 2022",
@@ -39,6 +43,7 @@ class _TiketSayaScreenState extends State<TiketSayaScreen> {
         anak: "3 Anak",
         total: "Rp. 200.000",
         namaTiket: "Pembelian Tiket",
+        pembayaran: "Kadaluarsa",
         status: "Dibatalkan"),
   ];
 
@@ -131,6 +136,7 @@ class TiketModel {
   final String? anak;
   final String? total;
   final String? namaTiket;
+  final String? pembayaran;
   final String? status;
 
   TiketModel({
@@ -141,6 +147,7 @@ class TiketModel {
     this.anak,
     this.total,
     this.namaTiket,
+    this.pembayaran,
     this.status,
   });
 }

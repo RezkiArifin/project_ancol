@@ -111,30 +111,33 @@ class _RiwayatScreenState extends State<RiwayatScreen> {
                       Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6),
-                          color: (widget.datas[index].status == "Sudah Bayar")
-                              ? const Color(0xFFE8FAFB)
-                              : (widget.datas[index].status == "Belum Bayar")
-                                  ? const Color(0xffFFF7E8)
-                                  : (widget.datas[index].status == "Dibatalkan")
-                                      ? const Color(0xffFFF4F2)
-                                      : const Color(0xFFE8FAFB),
+                          color:
+                              (widget.datas[index].pembayaran == "Sudah Bayar")
+                                  ? const Color(0xFFE8FAFB)
+                                  : (widget.datas[index].pembayaran ==
+                                          "Belum Bayar")
+                                      ? const Color(0xffFFF7E8)
+                                      : (widget.datas[index].pembayaran ==
+                                              "Kadaluarsa")
+                                          ? const Color(0xffFFF4F2)
+                                          : const Color(0xFFE8FAFB),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 12, vertical: 8),
                           child: Text(
-                            widget.datas[index].status.toString(),
+                            widget.datas[index].pembayaran.toString(),
                             style: TextStyle(
-                              color:
-                                  (widget.datas[index].status == "Sudah Bayar")
-                                      ? const Color(0xFF01A7CC)
-                                      : (widget.datas[index].status ==
-                                              "Belum Bayar")
-                                          ? const Color(0xffFAAD14)
-                                          : (widget.datas[index].status ==
-                                                  "Dibatalkan")
-                                              ? const Color(0xffCB3A31)
-                                              : const Color(0xFF01A7CC),
+                              color: (widget.datas[index].pembayaran ==
+                                      "Sudah Bayar")
+                                  ? const Color(0xFF01A7CC)
+                                  : (widget.datas[index].pembayaran ==
+                                          "Belum Bayar")
+                                      ? const Color(0xffFAAD14)
+                                      : (widget.datas[index].pembayaran ==
+                                              "Kadaluarsa")
+                                          ? const Color(0xffCB3A31)
+                                          : const Color(0xFF01A7CC),
                             ),
                           ),
                         ),
