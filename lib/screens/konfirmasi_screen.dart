@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiket_saya/screens/qris_bank_screen.dart';
 
 class KonfirmasiPesananScreen extends StatefulWidget {
   const KonfirmasiPesananScreen({super.key});
@@ -343,12 +344,12 @@ class _KonfirmasiPesananScreenState extends State<KonfirmasiPesananScreen> {
                       padding: const EdgeInsets.symmetric(horizontal: 6),
                     ),
                     onPressed: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => KonfirmasiPesananScreen(),
-                      //   ),
-                      // );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const QrisBankScreen(),
+                        ),
+                      );
                     },
                     child: const Text(
                       'Bayar Sekarang',

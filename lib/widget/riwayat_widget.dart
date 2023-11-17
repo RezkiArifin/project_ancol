@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
+import '../screens/detail_tiket_screen.dart';
 import '../screens/tiket_saya_screen.dart';
 
 class RiwayatScreen extends StatefulWidget {
@@ -108,36 +109,47 @@ class _RiwayatScreenState extends State<RiwayatScreen> {
                       const SizedBox(
                         height: 16,
                       ),
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(6),
-                          color:
-                              (widget.datas[index].pembayaran == "Sudah Bayar")
-                                  ? const Color(0xFFE8FAFB)
-                                  : (widget.datas[index].pembayaran ==
-                                          "Belum Bayar")
-                                      ? const Color(0xffFFF7E8)
-                                      : (widget.datas[index].pembayaran ==
-                                              "Kadaluarsa")
-                                          ? const Color(0xffFFF4F2)
-                                          : const Color(0xFFE8FAFB),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 12, vertical: 8),
-                          child: Text(
-                            widget.datas[index].pembayaran.toString(),
-                            style: TextStyle(
-                              color: (widget.datas[index].pembayaran ==
-                                      "Sudah Bayar")
-                                  ? const Color(0xFF01A7CC)
-                                  : (widget.datas[index].pembayaran ==
-                                          "Belum Bayar")
-                                      ? const Color(0xffFAAD14)
-                                      : (widget.datas[index].pembayaran ==
-                                              "Kadaluarsa")
-                                          ? const Color(0xffCB3A31)
-                                          : const Color(0xFF01A7CC),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => DetailTiketScreen(
+                                  datas: widget.datas[index],
+                                ),
+                              ));
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(6),
+                            color: (widget.datas[index].pembayaran ==
+                                    "Sudah Bayar")
+                                ? const Color(0xFFE8FAFB)
+                                : (widget.datas[index].pembayaran ==
+                                        "Belum Bayar")
+                                    ? const Color(0xffFFF7E8)
+                                    : (widget.datas[index].pembayaran ==
+                                            "Kadaluarsa")
+                                        ? const Color(0xffFFF4F2)
+                                        : const Color(0xFFE8FAFB),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 12, vertical: 8),
+                            child: Text(
+                              widget.datas[index].pembayaran.toString(),
+                              style: TextStyle(
+                                color: (widget.datas[index].pembayaran ==
+                                        "Sudah Bayar")
+                                    ? const Color(0xFF01A7CC)
+                                    : (widget.datas[index].pembayaran ==
+                                            "Belum Bayar")
+                                        ? const Color(0xffFAAD14)
+                                        : (widget.datas[index].pembayaran ==
+                                                "Kadaluarsa")
+                                            ? const Color(0xffCB3A31)
+                                            : const Color(0xFF01A7CC),
+                              ),
                             ),
                           ),
                         ),
