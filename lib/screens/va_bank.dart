@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../main.dart';
+
 class VaBankScreen extends StatelessWidget {
   const VaBankScreen({super.key});
 
@@ -279,11 +281,11 @@ class VaBankScreen extends StatelessWidget {
                         color: Color.fromARGB(255, 12, 168, 203),
                       )),
                   onPressed: () {
-                    // Navigator.of(context).pushAndRemoveUntil(
-                    //     MaterialPageRoute(
-                    //         builder: (context) =>
-                    //             const BottomNavigationBarExample()),
-                    //     (Route<dynamic> route) => false);
+                    Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                const BottomNavigationBarExample()),
+                        (Route<dynamic> route) => false);
                   },
                   child: const Text(
                     'Kembali ke Beranda',
