@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiket_saya/screens/auth/login_screen.dart';
 import 'package:tiket_saya/screens/home_screen.dart';
 import 'package:tiket_saya/screens/profile.dart';
 import 'package:tiket_saya/screens/tiket_saya_screen.dart';
@@ -26,7 +27,7 @@ class _MyAppState extends State<MyApp> {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const BottomNavigationBarExample(),
+      home: const LoginScreen(),
     );
   }
 }
