@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tiket_saya/screens/auth/register_screen.dart';
 
 import '../../main.dart';
 import '../../widget/global/text_field_global_widget.dart';
@@ -58,7 +58,7 @@ class LoginScreen extends StatelessWidget {
                     isValidTextField: true,
                     errorMessage: "",
                     hintText: "Masukkan Password",
-                    suffixIconWidget: Icon(CupertinoIcons.eye),
+                    suffixIconWidget: Icon(Icons.remove_red_eye),
                     decoration: InputDecoration(),
                   ),
                 ),
@@ -121,20 +121,26 @@ class LoginScreen extends StatelessWidget {
                 const SizedBox(
                   height: 24,
                 ),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       "Belum punya akun?",
                       style:
                           TextStyle(fontWeight: FontWeight.w400, fontSize: 12),
                     ),
-                    Text(
-                      "Daftar",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 12,
-                          color: Color(0xff01A7CC)),
+                    InkWell(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const RegisterScreen()));
+                      },
+                      child: const Text(
+                        "Daftar",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 12,
+                            color: Color(0xff01A7CC)),
+                      ),
                     ),
                   ],
                 )
