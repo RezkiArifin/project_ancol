@@ -37,6 +37,7 @@ class ListMenuWidget extends StatelessWidget {
         ),
         Text(
           label,
+          textAlign: TextAlign.center,
           style: const TextStyle(
             fontWeight: FontWeight.w400,
             fontSize: 10,

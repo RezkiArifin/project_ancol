@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiket_saya/screens/ubah_telepon_screen.dart';
 import 'package:tiket_saya/widget/global/text_field_global_widget.dart';
 
 class PengaturanAkunScreen extends StatelessWidget {
@@ -37,25 +38,76 @@ class PengaturanAkunScreen extends StatelessWidget {
                   decoration: InputDecoration(),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(bottom: 24),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 24),
                 child: TextFieldWidget(
                   height: 59,
                   title: "Nomor Telepon",
                   isValidTextField: true,
                   errorMessage: "",
                   hintText: "080000052156",
-                  decoration: InputDecoration(),
+                  decoration: const InputDecoration(),
+                  suffixIconWidget: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const UbahTeleponScreen(),
+                        ),
+                      );
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: Container(
+                        width: 50,
+                        height: 31,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(6),
+                            color: const Color(0xffE8FAFB)),
+                        child: const Center(
+                          child: Text(
+                            "Ubah",
+                            style: TextStyle(
+                                color: Color(0xff01A7CC),
+                                fontWeight: FontWeight.w600,
+                                fontSize: 10),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
               ),
-              const TextFieldWidget(
+              TextFieldWidget(
                 height: 59,
                 title: "Password",
                 isValidTextField: true,
                 errorMessage: "",
                 hintText: "080000052156",
-                decoration: InputDecoration(),
+                decoration: const InputDecoration(),
                 obscureText: true,
+                suffixIconWidget: InkWell(
+                  onTap: () {},
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 8),
+                    child: Container(
+                      width: 50,
+                      height: 31,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(6),
+                          color: const Color(0xffE8FAFB)),
+                      child: const Center(
+                        child: Text(
+                          "Ubah",
+                          style: TextStyle(
+                              color: Color(0xff01A7CC),
+                              fontWeight: FontWeight.w600,
+                              fontSize: 10),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ),
               const SizedBox(
                 height: 246,

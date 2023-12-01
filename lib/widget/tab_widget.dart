@@ -12,7 +12,7 @@ class TabWidget extends StatefulWidget {
 class _TabWidgetState extends State<TabWidget> {
   List<MenuModel> menu = [
     MenuModel(
-        image: "assets/icon/jb-land_icon.png", label: "Jakartabird\nland"),
+        image: "assets/icon/jb-land_icon.png", label: "Jakarta bird\nland"),
     MenuModel(image: "assets/icon/ancol_icon.png", label: "Ancol"),
     MenuModel(image: "assets/icon/dufan_icon.png", label: "Dufan"),
     MenuModel(image: "assets/icon/sea-world_icon.png", label: "Seaworld"),
