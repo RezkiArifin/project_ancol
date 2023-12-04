@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiket_saya/screens/ubah_password_screen.dart';
 import 'package:tiket_saya/screens/ubah_telepon_screen.dart';
 import 'package:tiket_saya/widget/global/text_field_global_widget.dart';
 
@@ -87,7 +88,14 @@ class PengaturanAkunScreen extends StatelessWidget {
                 decoration: const InputDecoration(),
                 obscureText: true,
                 suffixIconWidget: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const UbahPassScreen(),
+                      ),
+                    );
+                  },
                   child: Padding(
                     padding: const EdgeInsets.only(right: 8),
                     child: Container(
