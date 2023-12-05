@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tiket_saya/widget/global/text_field_global_widget.dart';
 
+import 'call_center_success_screen.dart';
+
 class CallCenterScreen extends StatelessWidget {
   const CallCenterScreen({super.key});
 
@@ -73,7 +75,15 @@ class CallCenterScreen extends StatelessWidget {
                               // padding: const EdgeInsets.symmetric(
                               // horizontal: 145, vertical: 12),
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const CallCenterSuccess(),
+                                ),
+                              );
+                            },
                             child: const Text(
                               'Kirim',
                               style: TextStyle(color: Colors.white),
