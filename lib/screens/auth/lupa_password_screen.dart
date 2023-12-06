@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../widget/global/text_field_global_widget.dart';
+import '../kode_otp_screen.dart';
 
 class LupaPasswordScreen extends StatelessWidget {
   const LupaPasswordScreen({super.key});
@@ -68,9 +69,8 @@ class LupaPasswordScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 6),
                   ),
                   onPressed: () {
-                    // Navigator.of(context).push(MaterialPageRoute(
-                    //     builder: (context) =>
-                    //         const BottomNavigationBarExample()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const KodeOtpScreen()));
                   },
                   child: const Text(
                     'Kirim',
