@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:tiket_saya/widget/global/qris_global_widget.dart';
 
 import '../screens/detail_tiket_screen.dart';
 import '../screens/tiket_saya_screen.dart';
@@ -188,7 +189,17 @@ class _TiketWidgetState extends State<TiketWidget> {
                                         padding: const EdgeInsets.symmetric(
                                             horizontal: 6),
                                       ),
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                const QrisWidget(
+                                              tiket: "Tiket Kendaraan",
+                                              title: Text("QR Kendaraan"),
+                                            ),
+                                          ),
+                                        );
+                                      },
                                       child: Padding(
                                         padding: const EdgeInsets.symmetric(
                                             horizontal: 12, vertical: 6),
@@ -224,7 +235,17 @@ class _TiketWidgetState extends State<TiketWidget> {
                                         padding: const EdgeInsets.symmetric(
                                             horizontal: 6),
                                       ),
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                const QrisWidget(
+                                              tiket: "Tiket Pengunjung",
+                                              title: Text("QR Pengunjung"),
+                                            ),
+                                          ),
+                                        );
+                                      },
                                       child: Padding(
                                         padding: const EdgeInsets.symmetric(
                                             horizontal: 12, vertical: 6),
