@@ -134,19 +134,45 @@ class _BeliTiketScreenState extends State<BeliTiketScreen> {
                     //     ],
                     //   ),
                     // ),
-                    Positioned(
-                      left: 0,
-                      top: 0,
-                      right: 0,
-                      bottom: 0,
-                      child: SfDateRangePicker(
-                        onSelectionChanged: _onSelectionChanged,
-                        selectionMode: DateRangePickerSelectionMode.range,
-                        initialSelectedRange: PickerDateRange(
-                            DateTime.now().subtract(const Duration(days: 4)),
-                            DateTime.now().add(const Duration(days: 3))),
+                    Container(
+                      height: 50,
+                      margin: const EdgeInsets.all(10.0),
+                      // Batasi tinggi maksimum menjadi 50px
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: 30,
+                        // Ganti dengan jumlah tanggal yang ingin Anda tampilkan
+                        itemBuilder: (BuildContext context, int index) {
+                          final date =
+                              DateTime.now().add(Duration(days: index));
+                          final day = DateFormat('dd').format(date);
+                          final month = DateFormat('MMMM').format(date);
+                          final year = DateFormat('yyyy').format(date);
+                          final formattedDate = '$day $month $year';
+                          final formattedDates =
+                              DateFormat('yyyy-MM-dd').format(date);
+
+                          return GestureDetector(
+                            onTap: () {
+                              // controller.formattanggals = formattedDates;
+                              // controller.formattanggal = formattedDate;
+                              // controller.update();
+                            },
+                            child: Container(
+                              margin: EdgeInsets.all(5),
+                              padding: EdgeInsets.all(5),
+                              decoration: BoxDecoration(
+                                // border: Border.all(color: controller.formattanggal == formattedDate ? Colors.red : AppColor.mainColor),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Center(
+                                child: Text(formattedDate),
+                              ),
+                            ),
+                          );
+                        },
                       ),
-                    )
+                    ),
                   ],
                 )),
             Padding(

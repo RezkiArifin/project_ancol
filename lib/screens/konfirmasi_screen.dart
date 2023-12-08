@@ -183,10 +183,13 @@ class _KonfirmasiPesananScreenState extends State<KonfirmasiPesananScreen> {
                                   });
                                 },
                               ),
-                              const Text(
-                                "Saya menyetujui syarat dan ketentuan yang\nberlaku",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w500, fontSize: 12),
+                              const Expanded(
+                                child: Text(
+                                  "Saya menyetujui syarat dan ketentuan yang\nberlaku",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 12),
+                                ),
                               ),
                             ],
                           ),
