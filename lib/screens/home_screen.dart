@@ -497,7 +497,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 Container(
-                  width: double.infinity,
+                  width: MediaQuery.of(context).size.width,
                   height: 242,
                   decoration: const BoxDecoration(
                       color: Color.fromARGB(255, 97, 210, 236)),

@@ -67,6 +67,7 @@ class _TabWidgetState extends State<TabWidget> {
             ]),
             SizedBox(
               //Add this to give height
+              width: MediaQuery.of(context).size.width,
               height: 350,
               child: TabBarView(children: [
                 Column(
@@ -80,27 +81,16 @@ class _TabWidgetState extends State<TabWidget> {
                             fontWeight: FontWeight.w600, fontSize: 12),
                       ),
                     ),
-                    Wrap(
-                      children: List.generate(
-                        menu.length,
-                        (index) => GestureDetector(
-                          onTap: () {
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //     builder: (context) => const UpdateFeatureScreen(),
-                            //   ),
-                            // );
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                                bottom: 12, right: 18, left: 18),
-                            child: ListMenuWidget(
-                              image: menu[index].image!,
-                              label: menu[index].label!,
-                            ),
-                          ),
-                        ),
+                    GridView.builder(
+                      shrinkWrap: true,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 4,
+                      ),
+                      itemCount: menu.length,
+                      itemBuilder: (context, index) => ListMenuWidget(
+                        image: menu[index].image!,
+                        label: menu[index].label!,
                       ),
                     ),
                   ],

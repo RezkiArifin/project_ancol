@@ -15,8 +15,8 @@ class ListMenuWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
-          width: 50,
-          height: 50,
+          width: 40,
+          height: 40,
           decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(6),
